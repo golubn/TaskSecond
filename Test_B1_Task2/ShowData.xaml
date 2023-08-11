@@ -1,0 +1,194 @@
+﻿<Window x:Class="Test_B1_Task2.ShowData"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Test_B1_Task2"
+        mc:Ignorable="d"
+        Title="ShowData" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="dataGrid" AutoGenerateColumns="False" HeadersVisibility="Column" IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Класс" Binding="{Binding ClassName}"  Width="Auto"/>
+                <DataGridTemplateColumn Header="Б/сч">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <ItemsControl ItemsSource="{Binding Balances}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock Text="{Binding AccountNumber}" Grid.Column="0" Margin="2"/>
+                                            
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                               <TextBlock Text="{Binding TotalSumsInClass[0].TotalSumName}" Grid.Column="0" Margin="2"/>
+
+                               
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Входящее активное сальдо">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <ItemsControl ItemsSource="{Binding Balances}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                
+
+                                                </Grid.ColumnDefinitions>
+                                           
+                                                <TextBlock Text="{Binding InActSaldo}" Grid.Column="1" Margin="2"/>
+                                            
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+
+                                <TextBlock Text="{Binding TotalSumsInClass[0].InActSaldo}" Margin="2"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Входящще пассивное сальдо">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <ItemsControl ItemsSource="{Binding Balances}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                             
+                                                </Grid.ColumnDefinitions>
+                                           
+                                                <TextBlock Text="{Binding InPassiveSaldo}" Grid.Column="2" Margin="2"/>
+                                                
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                                <TextBlock Text="{Binding TotalSumsInClass[0].InPassiveSaldo}" Margin="2"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Дебет">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <ItemsControl ItemsSource="{Binding Balances}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                               
+                                                </Grid.ColumnDefinitions>
+                                           
+                                                <TextBlock Text="{Binding TurnDebit}" Grid.Column="3" Margin="2"/>
+                                                
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                                <TextBlock Text="{Binding TotalSumsInClass[0].TurnDebit}" Margin="2"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Кредет">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <ItemsControl ItemsSource="{Binding Balances}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+                                                
+
+                                                </Grid.ColumnDefinitions>
+                                           
+                                                <TextBlock Text="{Binding TurnCredit}" Grid.Column="4" Margin="2"/>
+                                               
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                                <TextBlock Text="{Binding TotalSumsInClass[0].TurnCredit}" Margin="2"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Выходящще активное сальдо">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <ItemsControl ItemsSource="{Binding Balances}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+
+
+                                                </Grid.ColumnDefinitions>
+
+                                                <TextBlock Text="{Binding OutActSaldo}" Grid.Column="5" Margin="2"/>
+                                                
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                                <TextBlock Text="{Binding TotalSumsInClass[0].OutActSaldo}" Margin="2"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Выходящее пассивное сальдо">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <ItemsControl ItemsSource="{Binding Balances}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="Auto"/>
+
+
+                                                </Grid.ColumnDefinitions>
+
+                                                <TextBlock Text="{Binding OutPassiveSaldo}" Grid.Column="6" Margin="2"/>
+                                                 
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                   
+                                </ItemsControl>
+                                <TextBlock Text="{Binding TotalSumsInClass[0].InActSaldo}" Margin="2"/>
+                            </StackPanel>
+                        </DataTemplate>
+                       
+                    </DataGridTemplateColumn.CellTemplate>
+                    
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>
